@@ -1,8 +1,14 @@
 package com.mapping.hibernatemappings.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "address")
 public class Address {
 
@@ -15,6 +21,5 @@ public class Address {
 
     @Column(name = "temporary")
     private String temporaryAddress;
-
 
 }
