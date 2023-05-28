@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "address")
+@Table(name = "address",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uk_address_id", columnNames = {"id"})
+        }
+)
 public class Address {
 
     @Id
@@ -21,5 +25,7 @@ public class Address {
 
     @Column(name = "temporary")
     private String temporaryAddress;
+
+
 
 }
