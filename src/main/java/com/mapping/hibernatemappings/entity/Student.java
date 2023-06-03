@@ -1,8 +1,11 @@
 package com.mapping.hibernatemappings.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,5 +29,9 @@ public class Student {
 
     @Column(name = "stu_email", length = 150, nullable = false)
     private String email;
+
+    @JsonManagedReference
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "student")
+    private List<Phone> phone;
 
 }

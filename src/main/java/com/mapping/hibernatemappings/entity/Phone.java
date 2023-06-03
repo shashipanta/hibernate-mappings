@@ -1,5 +1,6 @@
 package com.mapping.hibernatemappings.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Phone {
 
     // Many phone can be associated to one Student
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(
             name = "student_id",

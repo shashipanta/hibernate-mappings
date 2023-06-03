@@ -1,12 +1,16 @@
 package com.mapping.hibernatemappings.dto.request;
 
+import com.mapping.hibernatemappings.entity.Phone;
 import com.mapping.hibernatemappings.entity.Student;
+
+import java.util.List;
 
 public record StudentRequest(
         Short id,
         String name,
         String address,
-        String email
+        String email,
+        List<Phone> phoneList
 ) {
 
 
@@ -17,6 +21,7 @@ public record StudentRequest(
         student.setName(studentRequest.name());
         student.setAddress(studentRequest.address());
         student.setEmail(studentRequest.email());
+        student.setPhone(studentRequest.phoneList());
 
         return student;
     }
@@ -27,6 +32,7 @@ public record StudentRequest(
         if(studentRequest.name() != null) foundStudent.setName(studentRequest.name());
         if(studentRequest.address() != null) foundStudent.setAddress(studentRequest.address());
         if(studentRequest.email() != null) foundStudent.setEmail(studentRequest.email());
+        if(studentRequest.phoneList() != null) foundStudent.setPhone(studentRequest.phoneList());
         return foundStudent;
     }
 }
